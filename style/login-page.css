@@ -2,14 +2,16 @@
   font-family: "Montserrat";
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/montserrat-v14-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/montserrat-v14-latin_cyrillic-regular.woff") format("woff"), url("../fonts/montserrat-v14-latin_cyrillic-regular.ttf") format("truetype"), url("../fonts/montserrat-v14-latin_cyrillic-regular.eot?") format("eot"), url("../fonts/montserrat-v14-latin_cyrillic-regular.svg#Montserrat") format("svg");
+  src: local("Montserrat"), url("../fonts/montserrat-v14-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/montserrat-v14-latin_cyrillic-regular.woff") format("woff"), url("../fonts/montserrat-v14-latin_cyrillic-regular.ttf") format("truetype"), url("../fonts/montserrat-v14-latin_cyrillic-regular.eot?") format("eot"), url("../fonts/montserrat-v14-latin_cyrillic-regular.svg#Montserrat") format("svg");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 700;
   font-style: normal;
-  src: url("../fonts/montserrat-v14-latin_cyrillic-700.woff2") format("woff2"), url("../fonts/montserrat-v14-latin_cyrillic-700.woff") format("woff"), url("../fonts/montserrat-v14-latin_cyrillic-700.ttf") format("truetype"), url("../fonts/montserrat-v14-latin_cyrillic-700.eot?") format("eot"), url("../fonts/montserrat-v14-latin_cyrillic-700.svg#Montserrat") format("svg");
+  src: local("Montserrat"), url("../fonts/montserrat-v14-latin_cyrillic-700.woff2") format("woff2"), url("../fonts/montserrat-v14-latin_cyrillic-700.woff") format("woff"), url("../fonts/montserrat-v14-latin_cyrillic-700.ttf") format("truetype"), url("../fonts/montserrat-v14-latin_cyrillic-700.eot?") format("eot"), url("../fonts/montserrat-v14-latin_cyrillic-700.svg#Montserrat") format("svg");
+  font-display: swap;
 }
 
 html {
@@ -48,7 +50,7 @@ a {
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat",sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -64,7 +66,7 @@ body {
 .form-wrap {
   display: flex;
   height: 100%;
-  width: 65vw;
+  width:100%;
   justify-content: space-between;
   flex-direction: column;
 }
@@ -93,7 +95,7 @@ body {
 }
 
 .myform input {
-  font-family: "Montserrat";
+  font-family: "Montserrat",sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -167,13 +169,15 @@ body {
 }
 
 .myform .button-original {
-  font-family: "Montserrat";
+  font-family: "Montserrat",sans-serif;
   margin-top: 10px;
   width: 100%;
   font-size: 12px;
   line-height: 15px;
   position: relative;
-  background: linear-gradient(180deg, #FAD26F 20%, #FFB56E 80%);
+ 
+  background: linear-gradient(0deg,#febf00  20%,  #FECC00 80%);
+  
   border-radius: 22px;
   height: 44px;
   outline: none;
@@ -414,7 +418,7 @@ body {
 
 .lang-drop {
   margin: 15px;
-  width: 75px;
+  width: 80px;
 }
 
 .dropdown {
@@ -470,6 +474,7 @@ body {
   top: 26px;
   overflow: hidden;
   pointer-events: none;
+
 }
 
 .dropdown_items {
@@ -485,6 +490,7 @@ body {
   transform: translate(0px, -200px);
   transition: 0.3s all ease-out;
   overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid #aaa;
 }
 
@@ -526,6 +532,7 @@ h3{
   font-size: 32px;
   line-height: 40px;
   text-align: right;
+  text-indent: inherit;
 }
 
 @media (max-width: 1343px) {
@@ -538,3 +545,43 @@ h3{
     font-size: 20px;
   }
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* стили только для IE10+ */
+  .slider-wrap * {
+    display: none;
+  }
+  
+  .myform .button-original {
+    border-radius: 0;
+  }
+  .form-wrap{
+    /* background: url(../img/slider_air.jpg); */
+    background: linear-gradient( rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.5) ), url('../img/slider_air.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .copyright {
+    color: white;
+  }
+  
+  .myform input:hover, .myform input:focus {
+    transition: all 0.5s ease;
+    border: 1px solid #c7c7d0;
+  }
+  
+  .myform img{
+    display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url(../img/S2B_Logo.png) no-repeat;
+  border: none;
+  } 
+  
+  .copyright .sign-in-offer a:hover {
+    color: orange;
+  }
+  
+}
+

@@ -24,8 +24,10 @@ viewBox="0 0 9172 3397.2"
    <stop offset="1" style="stop-opacity:1; stop-color:#C0BFBF"/>
   </linearGradient>
   <linearGradient id="id2" gradientUnits="userSpaceOnUse" x1="854.51" y1="3031.09" x2="1323.42" y2="1432.04">
+   <!-- <stop offset="0" style="stop-opacity:1; stop-color:#FECC00"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#EDC056"/> -->
    <stop offset="0" style="stop-opacity:1; stop-color:#FECC00"/>
-   <stop offset="1" style="stop-opacity:1; stop-color:#EDC056"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#febf00"/>
   </linearGradient>
   <linearGradient id="id3" gradientUnits="userSpaceOnUse" xlink:href="#id1" x1="1934.23" y1="2363.88" x2="2934.66" y2="2576.7">
   </linearGradient>

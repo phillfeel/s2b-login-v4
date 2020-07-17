@@ -19,9 +19,7 @@ jQuery(function ($) {
         if (el_l.val().length < 4) {
             var v_login = true;
             var backsay1 = document.getElementById('id6');
-            //backsay1.innerText = 'Логин должен быть больше 3 символов';
             backsay1.innerText = eval("dict" + activeLanguage).id6;
-            console.log(eval("dict" + activeLanguage).id6);
             backsay1.style.opacity = '1'
         }
         $('[name="login"]').toggleClass('error', v_login);
@@ -32,7 +30,6 @@ jQuery(function ($) {
         if (el_p.val().length < 4) {
             var v_password = true;
             var backsay1 = document.getElementById('id6');
-            //backsay1.innerText = 'Пароль должен быть больше 3 символов';
             backsay1.innerText = eval("dict" + activeLanguage).id6;
             backsay1.style.opacity = '1'
         }
@@ -50,44 +47,8 @@ function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
-// function showSlides(n) {
-//     var i;
-//     var slides = document.getElementsByClassName("mySlides");
-//     var dots = document.getElementsByClassName("dot");
-//     if (n > slides.length) {
-//         slideIndex = 1
-//     }
-//     if (n < 1) {
-//         slideIndex = slides.length
-//     }
-//     for (i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//     }
-//     for (i = 0; i < dots.length; i++) {
-//         dots[i].className = dots[i].className.replace(" active", "");
-//     }
-//     slides[slideIndex - 1].style.display = "block";
-//     dots[slideIndex - 1].className += " active";
-// }
-
 var slideIndex = 0;
-//showImg();
 showSlides();
-/* 
-function showImg(){
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].childNodes[1].classList.remove("active");        
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
-    slides[slideIndex - 1].childNodes[1].classList.add("active");
-    console.log('ch img');
-    setTimeout(showImg, 5000);
-} */
 
 function pause(ms) {
     var date = new Date();
@@ -101,10 +62,8 @@ function pause(ms) {
 function checkActive(elAct,elBlock){
     if(elAct.classList.contains('active')){
         elBlock.style.visibility = "visible";
-        //elBlock.style.display = "block";
         setTimeout(showSlides, 5000);
     }else{
-        console.log('wait...')
     }
 
 }
@@ -115,7 +74,6 @@ function showSlides() {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.visibility = "hidden";
         slides[i].childNodes[1].classList.remove("active");
-        console.log(slides[i].childNodes[7])
         slides[i].childNodes[7].classList.remove("show");
         
     }
@@ -126,11 +84,7 @@ function showSlides() {
     slides[slideIndex - 1].childNodes[1].classList.add("active");
     slides[slideIndex - 1].childNodes[7].classList.add("show");
 
-    //pause(800);
     checkActive(slides[slideIndex - 1].childNodes[1], slides[slideIndex - 1]);
-    
-    //console.log(slides[slideIndex - 1].childNodes[1]);
-    
 }
 
 
@@ -192,10 +146,14 @@ var dictFrance = {
 };
 
 function changeLanguage(language) {
-    var allTranslate = document.getElementsByClassName('translation')
-    console.log(allTranslate)
+    var allTranslate = document.getElementsByClassName('translation');
     for (translate of allTranslate) {
-        //language = language[0].toUpperCase() + language.slice(1);
+        if(language==="中文") {
+            var slideH3 = document.getElementsByClassName('text slide');
+            for(elem of slideH3){
+                elem.style.textIndent = "7em";
+            }
+        };
         var whatDict = eval("dict" + language)
         var newWord = whatDict[translate.id];
         if (translate.id === "id1" || translate.id === "id2") {
@@ -205,19 +163,6 @@ function changeLanguage(language) {
         }
     }
 };
-
-/* var engButton = document.querySelector(`.language .eng`);
-console.log(engButton);
-var rusButton = document.querySelector(`.language .rus`);
-
-engButton.onclick = function () {
-    changeLanguage("Eng")
-};
-
-rusButton.onclick = function () {
-    changeLanguage("Rus")
-}; */
-
 
 // --- DROPDOWN --- //
 
